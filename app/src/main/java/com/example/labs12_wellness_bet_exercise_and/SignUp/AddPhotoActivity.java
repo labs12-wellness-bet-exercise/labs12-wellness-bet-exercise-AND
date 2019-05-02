@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 
-import com.example.labs12_wellness_bet_sleep_android.R;
+import com.example.labs12_wellness_bet_exercise_and.R;
 
 public class AddPhotoActivity extends AppCompatActivity {
     private static  final int RESULT_LOAD_IMAGE =1;

@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.example.labs12_wellness_bet_sleep_android.R;
+import com.example.labs12_wellness_bet_exercise_and.R;
 import com.example.labs12_wellness_bet_exercise_and.fragmentsNav.dashBoardFragment;
 import  com.example.labs12_wellness_bet_exercise_and.fragmentsNav.homeFragment;
 import com.example.labs12_wellness_bet_exercise_and.fragmentsNav.roomsFragment;

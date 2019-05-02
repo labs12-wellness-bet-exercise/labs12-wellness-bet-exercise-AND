@@ -5,28 +5,14 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
-import android.util.Base64;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
-
-import com.example.labs12_wellness_bet_exercise_and.Models.User;
-import com.example.labs12_wellness_bet_exercise_and.Network.NetworkAdapter;
 import com.example.labs12_wellness_bet_exercise_and.Network.UserDao;
-import com.example.labs12_wellness_bet_sleep_android.R;
+import com.example.labs12_wellness_bet_exercise_and.R;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 public class LogInActivity extends AppCompatActivity {
 

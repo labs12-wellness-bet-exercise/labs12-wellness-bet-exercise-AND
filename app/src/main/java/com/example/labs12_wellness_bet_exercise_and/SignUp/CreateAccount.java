@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import com.example.labs12_wellness_bet_exercise_and.Network.NetworkAdapter;
-import com.example.labs12_wellness_bet_sleep_android.R;
+import com.example.labs12_wellness_bet_exercise_and.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;
