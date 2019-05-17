@@ -1,14 +1,20 @@
 package com.example.labs12_wellness_bet_exercise_and.SignUp;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+
+
 import android.os.Bundle;
+
+import android.support.annotation.NonNull;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-import com.example.labs12_wellness_bet_exercise_and.Network.NetworkAdapter;
+import android.widget.Toast;
+
+
 import com.example.labs12_wellness_bet_exercise_and.R;
 
 import org.json.JSONException;
@@ -16,13 +22,16 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 
-public class CreateAccount extends AppCompatActivity {
-    
+public class
+CreateAccount extends AppCompatActivity {
+
+    /**
+
     public static final String TAG = "CreateAccountTag";
 
-    TextView login, termOfS;
-    EditText nameText, emailText, passwordText;
-    CardView signupButton;
+    private EditText usernameText, emailText, passwordText, fullnameText;
+    private String username, password, email;
+    private FirebaseAuth mAuth;
 
 
     @Override
@@ -30,20 +39,24 @@ public class CreateAccount extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_account);
 
-        login = findViewById(R.id.textView_logIn);
-        termOfS = findViewById(R.id.textView_terms);
+        mAuth = FirebaseAuth.getInstance();
 
-        nameText = findViewById(R.id.name_text_ca);
+        TextView login = findViewById(R.id.textView_logIn);
+        TextView termOfS = findViewById(R.id.textView_terms);
+
+        CardView signupButton = findViewById(R.id.cardView_signup);
+
+        usernameText = findViewById(R.id.name_text_ca);
+        fullnameText = findViewById(R.id.fullname_text_ca);
         passwordText = findViewById(R.id.password_text_ca);
         emailText = findViewById(R.id.email_text_ca);
-
-        signupButton = findViewById(R.id.cardView_signup);
 
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent MainActivityIntent = new Intent(CreateAccount.this, com.example.labs12_wellness_bet_exercise_and.SignUp.LogInActivity.class);
+                Intent MainActivityIntent = new Intent
+                        (CreateAccount.this, LogInActivity.class);
                 startActivity(MainActivityIntent);
 
             }
@@ -52,21 +65,34 @@ public class CreateAccount extends AppCompatActivity {
         signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                username = usernameText.getText().toString();
+                password = passwordText.getText().toString();
+                email = emailText.getText().toString();
+
+
+                CreateUser(email, password);
+
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
                         JSONObject userdata = new JSONObject();
                         try {
-                            userdata.put("username", nameText.getText().toString() + ",");
-                            userdata.put("password", passwordText.getText().toString()+ ",");
-                            userdata.put("email", emailText.getText().toString());
+                            userdata.put("username",
+                                    usernameText.getText().toString() + ",");
+                            userdata.put("fullName",
+                                    fullnameText.getText().toString() + ",");
+                            userdata.put("password",
+                                    passwordText.getText().toString() + ",");
+                            userdata.put("email",
+                                          emailText.getText().toString());
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
                         String tokenRequest = null;
                         try {
                             tokenRequest = NetworkAdapter.httpRequest(
-                                    "https://sleep-bet.herokuapp.com/auth/register/",
+                                    "https://sleep-bet.herokuapp.com/api/users/register/",
                                     "POST", userdata, null);
                         } catch (IOException e) {
                             e.printStackTrace();
@@ -79,4 +105,19 @@ public class CreateAccount extends AppCompatActivity {
         });
 
     }
+
+    private void CreateUser(String emailFb, String passwordFb) {
+        mAuth.createUserWithEmailAndPassword(emailFb, passwordFb).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    Intent groupIntent = new Intent(CreateAccount.this, LogInActivity.class);
+                    startActivity(groupIntent);
+                } else {
+                    Log.w(TAG, "createUser: failure", task.getException());
+                    Toast.makeText(getApplicationContext(), "Login unsuccessful", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }  **/
 }

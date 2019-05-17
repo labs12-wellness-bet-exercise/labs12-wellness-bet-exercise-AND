@@ -1,12 +1,11 @@
 package com.example.labs12_wellness_bet_exercise_and.fragmentsNav;
 
-import android.graphics.pdf.PdfDocument;
-import android.net.Uri;
+
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
+
 
 import com.example.labs12_wellness_bet_exercise_and.R;
 
