@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 
 import com.example.labs12_wellness_bet_exercise_and.R;
 
-
 public class homeFragment extends Fragment {
 
     @Nullable

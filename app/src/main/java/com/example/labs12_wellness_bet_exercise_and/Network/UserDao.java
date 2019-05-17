@@ -11,17 +11,18 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class UserDao {
-    public static final String BASE_URL = "whateverurl";
-    public static final String USER_URL = BASE_URL + "/user";
-    public static final String CLIENT_ID = "lambda-client";
-    public static final String CLIENT_SECRET = "lambda-secret";
-    public static final String CLIENT_ID_SECRET = CLIENT_ID + ":" + CLIENT_SECRET;
+    private static final String BASE_URL = "https://sleep-bet.herokuapp.com/";
+    public static final String USER_URL = BASE_URL + "api/user";
+    private static final String CLIENT_ID = "labs12-wellness-bet-slee-f7748";
+    private static final String CLIENT_SECRET = "vWcbrnGWL47r8RBVHbQm1q9YkP6hJ3Ujujp7sNBm";
+    private static final String CLIENT_ID_SECRET = CLIENT_ID + ":" + CLIENT_SECRET;
 
     public static Map<String, String> headerProperties;
 
-    public static Map<String, String> logIn(String username, String password) {
+
+    public static Map<String, String> logInOauth(String username, String password) {
         String token = "";
-        String auth = Base64.encodeToString("lambda-client:lambda-secret".getBytes(), Base64.DEFAULT);
+        String auth = Base64.encodeToString(CLIENT_ID_SECRET.getBytes(), Base64.DEFAULT);
 
         headerProperties = new HashMap<>();
         headerProperties.put("Authorization", "Basic " + auth);
@@ -48,7 +49,7 @@ public class UserDao {
 
             String result = null;
             try {
-                result = NetworkAdapter.httpRequest("http://192.168.1.14:2019/restaurants/all", "GET", null, headerProperties);
+                result = NetworkAdapter.httpRequest("https://sleep-bet.herokuapp.com/auth/login/", "GET", null, headerProperties);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -61,4 +62,13 @@ public class UserDao {
         return headerProperties;
     }
 
+    public static void logIn(String username, String password){
+        String result = null;
+        try {
+            result = NetworkAdapter.httpRequest("https://sleep-bet.herokuapp.com/auth/login/", "POST", null, null);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Log.i("Userlist", result);
+    }
 }

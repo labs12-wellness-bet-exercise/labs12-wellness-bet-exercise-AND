@@ -1,15 +1,18 @@
 package com.example.labs12_wellness_bet_exercise_and.SignUp;
 
+
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.MenuItem;
+
+//import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.labs12_wellness_bet_exercise_and.R;
 import com.example.labs12_wellness_bet_exercise_and.fragmentsNav.dashBoardFragment;
-import  com.example.labs12_wellness_bet_exercise_and.fragmentsNav.homeFragment;
+import com.example.labs12_wellness_bet_exercise_and.fragmentsNav.homeFragment;
 import com.example.labs12_wellness_bet_exercise_and.fragmentsNav.roomsFragment;
 
 public class BottomNavigationActivity extends AppCompatActivity {

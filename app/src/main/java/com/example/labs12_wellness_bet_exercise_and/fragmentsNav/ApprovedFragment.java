@@ -3,14 +3,13 @@ package com.example.labs12_wellness_bet_exercise_and.fragmentsNav;
 
 import android.os.Bundle;
 
-import android.support.v4.app.Fragment;
 
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.labs12_wellness_bet_exercise_and.R;
-
 
 /**
  * A simple {@link Fragment} subclass.
